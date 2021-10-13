@@ -32,6 +32,6 @@
             </GridSplitter>
             <local:UserControlCuve Grid.Column="2" />
         </Grid>
-        <Button Content="Ajouter Cuve" HorizontalAlignment="Left" Margin="33,21,0,0" VerticalAlignment="Top" Height="24" Width="92" RenderTransformOrigin="0.634,0.016"/>
+        <Button Content="Ajouter Cuve" HorizontalAlignment="Left" Margin="33,21,0,0" VerticalAlignment="Top" Height="24" Width="92" RenderTransformOrigin="0.634,0.016" Click="Button_Click"/>
     </Grid>
 </Window>
