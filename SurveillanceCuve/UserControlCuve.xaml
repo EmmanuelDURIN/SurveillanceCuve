@@ -14,7 +14,18 @@
         <Grid HorizontalAlignment="Center" Margin="5">
             <Rectangle Fill="{Binding Produit, Converter={StaticResource convertisseurProduitCouleur}}"
                        VerticalAlignment="Bottom"
-                   Width="30" Height="20"  />
+                   Width="30" Height="50" RenderTransformOrigin="0.5,1"  >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform 
+                            
+                            ScaleY="{Binding NiveauRelatif, Mode=OneWay}"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
             <Rectangle Stroke="Black" VerticalAlignment="Bottom"
                    StrokeThickness="2" Width="30" Height="50"  />
         </Grid>

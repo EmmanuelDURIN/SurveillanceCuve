@@ -7,6 +7,12 @@ Public Class Cuve : Inherits BindableBase
     Private _poids As Double
     Private _volumeMax As Double
     Private _dateRemplissage As Date
+
+    Public ReadOnly Property NiveauRelatif() As Double
+        Get
+            Return _niveau / _volumeMax
+        End Get
+    End Property
     'Déclaration de propriété
     Public Property Niveau() As Double
         Get
@@ -21,6 +27,7 @@ Public Class Cuve : Inherits BindableBase
                 _niveau = value
             End If
             OnPropertyChanged()
+            OnPropertyChanged(NameOf(NiveauRelatif))
         End Set
     End Property
     Public Property Produit() As String
