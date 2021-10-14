@@ -5,46 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SurveillanceCuve"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="0 5 0 5"/>
-            <Setter Property="Height" Value="20"/>
-        </Style>
-        <Style TargetType="Slider">
-            <Setter Property="Height" Value="18"/>
-        </Style>
-    </UserControl.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Label Content="Produit:" />
-        <TextBox Text="{Binding Produit}" Width="150" HorizontalAlignment="Left" Grid.Column="1" />
-
-        <Label Content="Volume max:" Grid.Row="1"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-            <TextBox Text="{Binding VolumeMax}" Width="150" HorizontalAlignment="Left"  />
-            <Slider Width="150" Value="{Binding VolumeMax}" Margin="15 5" Maximum="3000"/>
-        </StackPanel>
-
-        <Label Content="Niveau:" Grid.Row="2"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-            <TextBox Text="{Binding Niveau}" Width="150" HorizontalAlignment="Left"  />
-            <Slider Width="150" Value="{Binding Niveau}" Margin="15 5" Maximum="3000"/>
-        </StackPanel>
-
-        <Label Content="Date Remplissage:" Grid.Row="3"/>
-        <DatePicker SelectedDate="{Binding DateRemplissage}" Grid.Row="3" Grid.Column="1"  Width="300" HorizontalAlignment="Left"/>
-
-    </Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance {x:Type local:Cuve}}">
+    <StackPanel>
+        <Grid HorizontalAlignment="Center" Margin="5">
+            <Rectangle Fill="Blue" VerticalAlignment="Bottom"
+                   Width="30" Height="20"  />
+            <Rectangle Stroke="Black" VerticalAlignment="Bottom"
+                   StrokeThickness="2" Width="30" Height="50"  />
+        </Grid>
+        <TextBlock HorizontalAlignment="Center" Text="{Binding Produit}" Margin="10" />
+        <TextBlock HorizontalAlignment="Center" Margin="10">
+            <Run Text="{Binding Niveau}"/>
+            /
+            <Run Text="{Binding VolumeMax}"/>
+        </TextBlock>
+    </StackPanel>
 </UserControl>

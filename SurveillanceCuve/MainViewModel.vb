@@ -13,7 +13,6 @@ Public Class MainViewModel : Inherits BindableBase
             OnPropertyChanged()
         End Set
     End Property
-
     Private _cuves As New ObservableCollection(Of Cuve)
     Public Property Cuves() As ObservableCollection(Of Cuve)
         Get

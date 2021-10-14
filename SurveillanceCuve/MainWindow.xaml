@@ -17,14 +17,20 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox Margin="10,10,20,10" ItemsSource="{Binding Cuves}" SelectedItem="{Binding CuveSélectionnée}">
+            <ListBox Margin="10,10,20,10" ItemsSource="{Binding Cuves}"
+                     HorizontalContentAlignment="Center"
+                     SelectedItem="{Binding CuveSélectionnée}">
                 <!--WPF permet de redéfinir les templates de contrôles-->
                 <ListBox.ItemTemplate>
-                    <DataTemplate>
+                    <!--<DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <TextBlock FontWeight="DemiBold" FontSize="18" Text="{Binding Produit}" />
                             <TextBlock Text="{Binding DateRemplissage, StringFormat=\{0:D\}}" />
                         </StackPanel>
+                    </DataTemplate>-->
+
+                    <DataTemplate>
+                        <local:UserControlCuve />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -42,7 +48,7 @@
             </GridSplitter>
             <!--le DataContext hérité est le MainViewModel défini au niveau de la fenêtre-->
             <!--Donc on redéfinit le DataContext du UserControl-->
-            <local:UserControlCuve Grid.Column="2" DataContext="{Binding CuveSélectionnée}" />
+            <local:UserControlEditionCuve Grid.Column="2" DataContext="{Binding CuveSélectionnée}" />
         </Grid>
         <Button Content="Ajouter Cuve" HorizontalAlignment="Left" Margin="33,21,0,0" VerticalAlignment="Top" Height="24" Width="92" RenderTransformOrigin="0.634,0.016" Click="Button_Click"/>
     </Grid>
