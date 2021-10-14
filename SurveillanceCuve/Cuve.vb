@@ -1,15 +1,12 @@
 ﻿Imports System.ComponentModel
 Imports System.Runtime.CompilerServices
 
-Public Class Cuve : Implements INotifyPropertyChanged
-
-    Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
-    Protected Sub OnPropertyChanged(<CallerMemberName> Optional propName As String = Nothing)
-        RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propName))
-    End Sub
-
+Public Class Cuve : Inherits BindableBase
     Private _niveau As Double
-
+    Private _produit As String
+    Private _poids As Double
+    Private _volumeMax As Double
+    Private _dateRemplissage As Date
     'Déclaration de propriété
     Public Property Niveau() As Double
         Get
@@ -18,15 +15,14 @@ Public Class Cuve : Implements INotifyPropertyChanged
             Return _niveau
         End Get
         Set(ByVal value As Double)
-            If _niveau > _VolumeMax Then
-                _niveau = _VolumeMax
+            If _niveau > _volumeMax Then
+                _niveau = _volumeMax
             Else
                 _niveau = value
             End If
             OnPropertyChanged()
         End Set
     End Property
-    Private _produit As String
     Public Property Produit() As String
         Get
             Return _produit
@@ -36,7 +32,6 @@ Public Class Cuve : Implements INotifyPropertyChanged
             OnPropertyChanged()
         End Set
     End Property
-    Private _poids As Double
     Public Property Poids() As Double
         Get
             Return _poids
@@ -46,7 +41,6 @@ Public Class Cuve : Implements INotifyPropertyChanged
             OnPropertyChanged()
         End Set
     End Property
-    Private _volumeMax As Double
     Public Property VolumeMax() As Double
         Get
             Return _volumeMax
@@ -56,8 +50,7 @@ Public Class Cuve : Implements INotifyPropertyChanged
             OnPropertyChanged()
         End Set
     End Property
-    Private _dateRemplissage As DateTime
-    Public Property DateRemplissage() As DateTime
+    Public Property DateRemplissage() As Date
         Get
             Return _dateRemplissage
         End Get

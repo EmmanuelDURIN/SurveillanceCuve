@@ -1,4 +1,12 @@
 ﻿Class MainWindow
+    Private viewModel As New MainViewModel()
+
+    Sub New()
+        ' Cet appel est requis par le concepteur.
+        InitializeComponent()
+        ' Le viewModel fournit les données du DataContext pour que le binding fonctionne
+        DataContext = viewModel
+    End Sub
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
         Dim window As New WindowCuve()
 
