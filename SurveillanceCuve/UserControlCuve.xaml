@@ -29,22 +29,22 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Produit:" />
-        <TextBox Text="" Width="150" HorizontalAlignment="Left" Grid.Column="1" />
+        <TextBox Text="{Binding Produit}" Width="150" HorizontalAlignment="Left" Grid.Column="1" />
 
         <Label Content="Volume max:" Grid.Row="1"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-            <TextBox Text="" Width="150" HorizontalAlignment="Left"  />
-            <Slider Width="150" Margin="15 5" Maximum="3000"/>
+            <TextBox Text="{Binding VolumeMax}" Width="150" HorizontalAlignment="Left"  />
+            <Slider Width="150" Value="{Binding VolumeMax}" Margin="15 5" Maximum="3000"/>
         </StackPanel>
 
         <Label Content="Niveau:" Grid.Row="2"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-            <TextBox Text="" Width="150" HorizontalAlignment="Left"  />
-            <Slider Width="150" Margin="15 5" Maximum="3000"/>
+            <TextBox Text="{Binding Niveau}" Width="150" HorizontalAlignment="Left"  />
+            <Slider Width="150" Value="{Binding Niveau}" Margin="15 5" Maximum="3000"/>
         </StackPanel>
 
         <Label Content="Date Remplissage:" Grid.Row="3"/>
-        <DatePicker Grid.Row="3" Grid.Column="1"  Width="300" HorizontalAlignment="Left"/>
+        <DatePicker SelectedDate="{Binding DateRemplissage}" Grid.Row="3" Grid.Column="1"  Width="300" HorizontalAlignment="Left"/>
 
     </Grid>
 </UserControl>

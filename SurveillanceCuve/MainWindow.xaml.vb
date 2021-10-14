@@ -5,6 +5,7 @@
         Dim result As Boolean? = window.ShowDialog()
         If result = True Then
             ' l'utilisateur a appuyé sur Ok
+            'window.Cuve
         End If
     End Sub
 End Class
